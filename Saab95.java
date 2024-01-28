@@ -35,7 +35,7 @@ public class Saab95 extends Car {
     @Override
     public void decrementSpeed(double amount){
         if (getCurrentSpeed() - speedFactor() * amount < currentSpeed)
-            currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+            currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 }
 

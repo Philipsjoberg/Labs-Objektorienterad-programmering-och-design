@@ -6,10 +6,10 @@ public abstract class Car implements Movable {
     protected double currentSpeed;
     protected Color color;
     protected String modelName;
-    protected double xPos;
-    protected double yPos;
-    protected double xDir;
-    protected double yDir;
+    private double xPos;
+    private double yPos;
+    private double xDir;
+    private double yDir;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
