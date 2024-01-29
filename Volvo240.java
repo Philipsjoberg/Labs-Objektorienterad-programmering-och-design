@@ -9,24 +9,24 @@ public class Volvo240 extends Car {
     }
 
     @Override
-    public double speedFactor() {
+    protected double speedFactor() {
         return enginePower * 0.01 * trimFactor;
     }
 
     @Override
-    public void incrementSpeed(double amount) {
+    protected void incrementSpeed(double amount) {
         if (Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower) > currentSpeed) {
             currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
 
         }
     }
-
     @Override
-    public void decrementSpeed(double amount) {
+    protected void decrementSpeed(double amount) {
         if (Math.max(getCurrentSpeed() - speedFactor() * amount, 0) < currentSpeed) {
             currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
         }
     }
 }
+
 
 
