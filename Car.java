@@ -6,10 +6,10 @@ public abstract class Car implements Movable {
     protected double currentSpeed;
     protected Color color;
     protected String modelName;
-    private double xPos;
-    private double yPos;
-    private double xDir;
-    private double yDir;
+    protected double xPos;
+    protected double yPos;
+    protected double xDir;
+    protected double yDir;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
@@ -62,23 +62,22 @@ public abstract class Car implements Movable {
 
     protected abstract void decrementSpeed(double amount);
 
-    protected void gas(double amount) {
+    public void gas(double amount) {
         if (amount < 0 || amount > 1) {
-            System.out.println("Amount is not within the required range");
+            throw new IllegalArgumentException("Invalid gas amount");
         } else {
             incrementSpeed(amount);
         }
     }
 
-    protected void brake(double amount) {
+    public void brake(double amount) {
         if (amount < 0 || amount > 1) {
-            System.out.println("Amount is not within the required range");
+            throw new IllegalArgumentException("Invalid brake amount");
         } else {
-            if (this.currentSpeed <= 0) {
-                this.currentSpeed = 0;
-            } else {
                 decrementSpeed(amount);
             }
+        if (this.currentSpeed <= 0) {
+            this.currentSpeed = 0;
         }
     }
     public void move() {
