@@ -76,9 +76,6 @@ public abstract class Car implements Movable {
         } else {
                 decrementSpeed(amount);
             }
-        if (this.currentSpeed <= 0) {
-            this.currentSpeed = 0;
-        }
     }
     public void move() {
         this.xPos += currentSpeed * this.xDir;
